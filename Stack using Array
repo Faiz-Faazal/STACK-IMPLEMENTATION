@@ -1,0 +1,104 @@
+#include<iostream>
+using namespace std;
+#define SIZE 50
+int top = -1;
+int Stack[SIZE];
+
+int isempty()
+{
+	if (top==-1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+void push(int value)
+{
+	if (top == SIZE - 1)
+	{
+		cout << "Stack is Full" << endl;
+	}
+	else
+	{
+		top++;
+		Stack[top] = value;
+	}
+}
+
+void pop()
+{
+	if (top == -1)
+	{
+		cout << "Stack is empty." << endl;
+	}
+	else
+	{
+		Stack[top--];
+	}
+}
+
+void display()
+{
+	if (top == -1)
+	{
+		cout << "Stack is Empty." << endl;
+	}
+	else
+	{
+		for (int i = top; i >= 0; i--)
+		{
+			cout << Stack[i] << endl;
+		}
+	}
+}
+
+void show_top()
+{
+	if (top == -1)
+	{
+		cout << "Stack is Empty." << endl;
+	}
+	else
+	{
+		cout << Stack[top] << endl;
+	}
+}
+
+void show_last()
+{
+	if (top == -1)
+	{
+		cout << "Stack is Empty." << endl;
+	}
+	else
+	{
+		cout << Stack[0] << endl;
+	}
+}
+
+int main()
+{
+	isempty();
+	push(2);
+	push(8);
+	push(1);
+	push(4);
+	push(2);
+	push(3);
+	push(8);
+	push(9);
+	cout << "---- Displaying Stack ----" << endl;
+	display();
+	cout << "---- POP element ----" << endl;
+	pop();
+	cout << "---- Displaying Stack ----" << endl;
+	display();
+	cout << "----  Showing Top Element ----" << endl;
+	show_top();
+	cout << "----  Showing Last Element ----" << endl;
+	show_last();
+	return 0;
+}
